@@ -5,12 +5,11 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+//import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Fab from "@material-ui/core/Fab";
 
-import { useHistory } from "react-router-dom";
-
-import CartContext from "../context/cart";
+import { useNavigate } from 'react-dom';
+import CartContext from "../context/Cart";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GridItem({ product }) {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const cart = React.useContext(CartContext);
   const navigateUrl = `/${product.category}/${product.id}`;
 
@@ -72,9 +71,9 @@ export default function GridItem({ product }) {
           </div>
         </CardContent>
       </CardActionArea>
-      <Fab color="secondary" aria-label="cart" className={classes.cartButton}>
+      {/* <Fab color="secondary" aria-label="cart" className={classes.cartButton}>
         <ShoppingCartIcon onClick={(e) => addCart(e)} />
-      </Fab>
+      </Fab> */}
     </Card>
   );
 }
